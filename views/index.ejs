@@ -8,5 +8,28 @@
 </head>
 <body>
     <h1>TodoApp</h1>
+
+    <form action="/" method="post">
+        <input type="text" name="title">
+        <button type="submit">Add Task</button>
+    </form>
+    
+    <!-- delete button -->
+    <form action="/" method="delete">
+        <input type="submit" value="DELETE">
+    </form>
+    
+    <!-- sample tasks -->
+    <ul>
+        <% for(let i = 0; i < tasks.length; i++){ %>
+            <li><%= tasks[i].title %></li>
+            <button>delete</button>
+            <a href="/edit/<%=i%>"><button>edit</button></a>
+          
+        <% } %>
+
+
+
+    </ul>
 </body>
 </html>

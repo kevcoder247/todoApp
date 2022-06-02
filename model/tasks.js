@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 
 //Create New Schema
 const TasksSchema = new Schema({
-    task:{
+    title:{
         type: String,
         required: true
     }
