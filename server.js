@@ -7,6 +7,9 @@ const mongoose = require('mongoose')
 const todoTasks = require('./model/tasks')
 const PORT = 3000;
 
+//Link CSS========================================
+app.use(express.static(__dirname + '/public'));
+
 //Test database=============================
 const tasks = [ { _id:0, title: 'Go to the gym'}];
 //track number of arrays in our test database
