@@ -17,17 +17,20 @@
 <body>
     <div class="container">
         <h1>TodoApp</h1>
-        <!-- inpit field -->
+        
+        <!-- input field -->
         <div class="inputArea">
             <form action="/" method="post">
                 <input type="text" name="title">
-                <button type="submit" class="button-primary">Add Task</button>
+                <button type="submit" class="addTaskButton">Add Task</button>
             </form>
         </div>
         
         <div class="taskArea">
             <ul>
+                
                 <% for(let i = 0; i < tasks.length; i++){ %>
+                <div class="individualtask">
                     <!-- task text -->
                     <li class="taskText"><%= tasks[i].title %></li>
                 
@@ -41,8 +44,9 @@
                         <input type="submit" value="DELETE" class=" delete button-primary">
                     </form>
                 </div>
-
+            </div>
             <% } %>
+           
             </ul>
         </div>
     </div>
