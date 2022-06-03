@@ -25,6 +25,7 @@ mongoose.connect(DATABASE_URL, {
 	useNewUrlParser: true,
 	useUnifiedTopology: true,
 });
+
 // Database Connection Error/Success
 // Define callback functions for various events
 db.on('error', (err) => console.log(err.message + ' is mongod not running?'));
@@ -41,10 +42,6 @@ app.use(express.urlencoded({ extended: false }))
 //INDEX (list everything)
 app.get('/', (req, res) => {
     res.render('index.ejs', {tasks})
-    // res.send({
-    //     msg: 'Hello',
-    //     user: {}
-    // })
 })
 
 //DESTROY================================
@@ -70,6 +67,7 @@ app.post('/', (req, res) => {
 app.get('/edit/:id', (req, res) => {
     res.render('edit.ejs', {task: tasks[req.params.id]});
 })
+
 //SAVE===============================
 app.post('/edit/:id/save', (req, res) => {
     const task = req.body;

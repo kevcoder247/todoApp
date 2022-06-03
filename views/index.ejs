@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap" rel="stylesheet">  
     <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
     <link rel="stylesheet" href="/css/main.css">        
     <title>TODOApp | Home</title>
@@ -15,20 +21,27 @@
         <div class="inputArea">
             <form action="/" method="post">
                 <input type="text" name="title">
-                <button type="submit" class="universalButton button-primary">Add Task</button>
+                <button type="submit" class="button-primary">Add Task</button>
             </form>
         </div>
         
         <div class="taskArea">
             <ul>
                 <% for(let i = 0; i < tasks.length; i++){ %>
-                    <li><%= tasks[i].title %></li>
-                    <a href="/edit/<%=tasks[i]._id%>"><button class="universalButton button-primary">edit</button></a>
+                    <!-- task text -->
+                    <li class="taskText"><%= tasks[i].title %></li>
+                
+                    <!-- change both buttons to icons------------->
+                <div class="taskButtons"> 
+                    <!-- edit button -->
+                    <a href="/edit/<%=tasks[i]._id%>"><button class="editButton ">edit</button></a>
         
-                    
+                    <!-- delete button -->
                     <form action="/delete/<%=tasks[i]._id %>"  method="POST">
-                        <input type="submit" value="DELETE" class="universalButton button-primary">
+                        <input type="submit" value="DELETE" class=" delete button-primary">
                     </form>
+                </div>
+
             <% } %>
             </ul>
         </div>
