@@ -1,5 +1,6 @@
 const express = require('express');
-// const { param } = require('express/lib/request');
+require('dotenv').config();
+
 const app = express();
 const mongoose = require('mongoose')
 // const methodOverride = require("method-override")
@@ -8,12 +9,12 @@ const PORT = 3000;
 
 //Test database=============================
 const tasks = [ { _id:0, title: 'Go to the gym'}];
-
+//track number of arrays in our test database
 let count = 0;
 
 
 // Database configuration
-const DATABASE_URL = 'mongodb+srv://admin:abc321@todoapp.21go0yr.mongodb.net/todoApp?retryWrites=true&w=majority'
+const DATABASE_URL = process.env.MONGO_CONNECTION
 const db = mongoose.connection;
 
 // Connect to MongoDB Atlas
@@ -44,9 +45,14 @@ app.get('/', (req, res) => {
 })
 
 //DESTROY================================
-app.delete('/', (req, res) => {
+app.post('/delete/:id', (req, res) => {
     //Add a method that removes the item from the database
-    res.render('index.ejs', {tasks})
+    tasks.splice(req.params.id, 1)
+    console.log(tasks)
+    if(tasks.length < 1){
+        count = 0
+    }
+    res.redirect('/')
 })
 
 //Create========================
@@ -54,12 +60,20 @@ app.post('/', (req, res) => {
     const task = req.body;
     tasks.push({...task, _id: ++count})
     console.log(tasks);
-    res.render('index.ejs', {tasks})
-})
+    res.redirect('/')
+ })
 
 //Update====================================
 app.get('/edit/:id', (req, res) => {
     res.render('edit.ejs', {task: tasks[req.params.id]});
+})
+//SAVE===============================
+app.post('/edit/:id/save', (req, res) => {
+    const task = req.body;
+    console.log(task)
+    tasks[task._id] = task;
+    res.redirect('/')//figure out how to update the array with the given body
+    
 })
 
 //SHOW=====================================

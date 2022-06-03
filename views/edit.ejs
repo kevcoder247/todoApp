@@ -7,6 +7,12 @@
     <title>EDIT Task</title>
 </head>
 <body>
-    <h1>EDIT PAGE</h1>   
+    <h1>EDIT PAGE</h1>  
+    
+    <form action="/edit/<%=task._id%>/save" method="post">
+        <input type="text" name="title" value="<%=task.title%>">
+        <input type="hidden" name="_id" value="<%= task._id%>">
+        <button type="submit">Save Task</button>
+    </form>
 </body>
 </html>
