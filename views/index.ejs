@@ -9,23 +9,29 @@
     <title>TODOApp | Home</title>
 </head>
 <body>
-    <h1>TodoApp</h1>
-
-    <form action="/" method="post">
-        <input type="text" name="title">
-        <button type="submit">Add Task</button>
-    </form>
-    
-    <ul>
-        <% for(let i = 0; i < tasks.length; i++){ %>
-            <li><%= tasks[i].title %></li>
-            <a href="/edit/<%=tasks[i]._id%>"><button>edit</button></a>
-
-            
-            <form action="/delete/<%=tasks[i]._id %>"  method="POST">
-                <input type="submit" value="DELETE">
+    <div class="container">
+        <h1>TodoApp</h1>
+        <!-- inpit field -->
+        <div class="inputArea">
+            <form action="/" method="post">
+                <input type="text" name="title">
+                <button type="submit" class="universalButton button-primary">Add Task</button>
             </form>
-    <% } %>
-    </ul>
+        </div>
+        
+        <div class="taskArea">
+            <ul>
+                <% for(let i = 0; i < tasks.length; i++){ %>
+                    <li><%= tasks[i].title %></li>
+                    <a href="/edit/<%=tasks[i]._id%>"><button class="universalButton button-primary">edit</button></a>
+        
+                    
+                    <form action="/delete/<%=tasks[i]._id %>"  method="POST">
+                        <input type="submit" value="DELETE" class="universalButton button-primary">
+                    </form>
+            <% } %>
+            </ul>
+        </div>
+    </div>
 </body>
 </html>
