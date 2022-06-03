@@ -43,6 +43,7 @@ input[type="text"]{
     /* border: 2px solid black; */
     height: 55px;
     font-family: 'Rock Salt', cursive;
+    color: black;
     width: 80%;
     background-color: rgb(143, 152, 231);
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
@@ -82,19 +83,44 @@ ul li{
 
 .editButton{
     /* border: 3px solid red; */
-    font-size: 1.4rem;
-    background-color: rgb(0, 255, 94);
+    border: none;
+    font-size: 30px;
+    /* background-color: rgb(0, 255, 94); */
+}
+.editButton:hover{
+    color:rgb(0, 255, 94);
+    font-size: 35px;
 }
 /* target delete button */
  input[type="submit"]{
-    font-size: 1rem;
-}
+     font-size: 30px;
+     border: none;
+ }
+ input[type="submit"]:hover{
+     color:red;
+     font-size: 35px;
+ }
 
 .taskButtons{
     /* border: 2px solid red; */
-    font-size: 30px;
     display: flex;
-    justify-content: space-evenly;
-    
+    justify-content: center;
+    margin-top: 15px;
+}
+/* EDIT BUTTON ICON */
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 1,
+  'wght' 700,
+  'GRAD' 0,
+  'opsz' 50
 }
 
+/* DELETE BUTTON ICON */
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 700,
+  'GRAD' 0,
+  'opsz' 480,
+}

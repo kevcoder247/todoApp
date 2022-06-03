@@ -9,7 +9,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap" rel="stylesheet">  
+    <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap" rel="stylesheet"> 
+    
+    <!-- edit & Delete icons------------- -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    
     <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
     <link rel="stylesheet" href="/css/main.css">        
     <title>TODOApp | Home</title>
@@ -31,17 +35,18 @@
                 
                 <% for(let i = 0; i < tasks.length; i++){ %>
                 <div class="individualtask">
+                    
                     <!-- task text -->
                     <li class="taskText"><%= tasks[i].title %></li>
                 
                     <!-- change both buttons to icons------------->
                 <div class="taskButtons"> 
                     <!-- edit button -->
-                    <a href="/edit/<%=tasks[i]._id%>"><button class="editButton ">edit</button></a>
+                    <a href="/edit/<%=tasks[i]._id%>"><button class="editButton  material-symbols-outlined">edit</button></a>
         
                     <!-- delete button -->
                     <form action="/delete/<%=tasks[i]._id %>"  method="POST">
-                        <input type="submit" value="DELETE" class=" delete button-primary">
+                        <input type="submit" value="DELETE" class="material-symbols-outlined">
                     </form>
                 </div>
             </div>
