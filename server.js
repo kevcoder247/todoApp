@@ -4,7 +4,7 @@ const app = express();
 const mongoose = require('mongoose')
 const methodOverride = require("method-override")
 const Tasks = require('./model/tasks')
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 //Link CSS========================================
 app.use(express.static(__dirname + '/public'));
