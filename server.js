@@ -1,22 +1,13 @@
 const express = require('express');
 require('dotenv').config();
-
 const app = express();
 const mongoose = require('mongoose')
-// const methodOverride = require("method-override")
+const methodOverride = require("method-override")
 const Tasks = require('./model/tasks')
 const PORT = 3000;
 
 //Link CSS========================================
 app.use(express.static(__dirname + '/public'));
-
-
-
-//Test database================================================
-// const tasks = [ { _id:0, title: 'Go to the gym'}];
-//track number of arrays in our test database
-// let count = 0;
-
 
 // Database configuration
 const DATABASE_URL = process.env.MONGO_CONNECTION
@@ -39,6 +30,9 @@ app.use(express.json())
 //MIDDLEWARE===================================
 app.use(express.urlencoded({ extended: false }))
 
+//Delete methed middleware====================== 
+app.use(methodOverride("_method"));
+
 
 //Mount Routes==============================
 
@@ -51,16 +45,12 @@ app.get('/tasks', (req, res) => {
     });
 });
 
-//DESTROY================================
-// app.post('/delete/:id', (req, res) => {
-//     //Add a method that removes the item from the database
-//     tasks.splice(req.params.id, 1)
-//     console.log(tasks)
-//     if(tasks.length < 1){
-//         count = 0
-//     }
-//     res.redirect('/')
-// })
+//DELETE================================
+  app.delete('/tasks/:id', (req, res) => {
+    Tasks.findByIdAndRemove(req.params.id, (error, data) => {
+        res.redirect('/tasks')
+    })
+   })
 
 //Create===================================
 app.post('/tasks', (req, res) => {
@@ -93,11 +83,6 @@ app.get('/edit/:id', (req, res) => {
         }
     )
 })
-
-//SHOW=====================================
-// app.get('/show/:id', (req, res) => {
-//     res.render('show.ejs', {task: tasks[req.params.id]})
-// })
 
 //Make sure we are connected to the server
 app.listen(PORT, () => {
