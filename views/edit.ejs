@@ -4,17 +4,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
     <link rel="stylesheet" href="/css/main.css">  
     <title>EDIT Task</title>
 </head>
-<body>
-    <h1>EDIT PAGE</h1>  
-    
-    <form action="/edit/<%=task._id%>/save" method="post">
-        <input type="text" name="title" value="<%=task.title%>">
-        <input type="hidden" name="_id" value="<%= task._id%>">
-        <button type="submit">Save Task</button>
-    </form>
+<body class="editBody">
+     
+    <div class="container">
+        <h1 class="editH1">EDIT|Task</h1> 
+        <form action="/edit/<%=task._id%>/save" method="post">
+            <input class="editPageInput" type="text" name="title" value="<%=task.title%>" >
+            <input type="hidden" name="_id" value="<%= task._id%>">
+            <button type="submit" class="editSaveButton">Save Task</button>
+        </form>
+    </div>
 </body>
 </html>
