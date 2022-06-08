@@ -24,3 +24,21 @@ To Do App is an application built to help you keep track of your daily tasks.
 ![SC3](sc3.jpg)
 
 --- 
+
+## Lets Get Started
+
+---
+
+[Click Here to See the App](https://todoapp247project2.herokuapp.com/tasks)
+
+---
+
+Future Upgrades
+
+---
+* Create a login Auth
+* All actions occurr on the Index
+
+---
+
+### Thanks For Visiting My App!
