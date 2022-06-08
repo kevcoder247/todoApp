@@ -19,6 +19,8 @@ To Do App is an application built to help you keep track of your daily tasks.
 
 ## App Screen Shot
 
+![SC1](sc1.jpg)
+![SC1](sc2.jpg)
 
 
 
